@@ -129,6 +129,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 try:
-    from .settings_local import *
+    from .local_settings import *
 except ImportError:
     pass
