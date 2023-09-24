@@ -127,3 +127,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://gdxsq3-8000.csb.app'
 ]
+
+try:
+    from .settings_local import *
+except ImportError:
+    pass
