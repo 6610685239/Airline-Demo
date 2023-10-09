@@ -14,11 +14,15 @@ class Flight(models.Model):
     origin = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="departures")
     destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="arrivals")
     duration = models.IntegerField()
+    capacity = models.PositiveIntegerField(default=2)
 
     def __str__(self):
         return f"{self.id}: {self.origin} to {self.destination}"
 
+    def is_seat_available(self):
+        return self.passengers.count() < self.capacity
 
+        
 class Passenger(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
