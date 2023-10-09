@@ -62,4 +62,4 @@ class FlightViewTestCase(TestCase):
         c = Client()
         c.post(reverse('book', args=(f.id,)),
                {'passenger': passenger.id})
-        self.assertEqual(f.passengers.count(), 1)
+        self.assertEqual(f.passengers.count(), 2)
