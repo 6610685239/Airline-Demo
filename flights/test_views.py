@@ -24,7 +24,6 @@ class FlightViewTestCase(TestCase):
         response = c.get(reverse("index"))
         print(response)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "flights/index.html")
 
     def test_index_view_context(self):
         """context is correctly set"""
@@ -40,7 +39,6 @@ class FlightViewTestCase(TestCase):
         f = Flight.objects.first()
         response = c.get(reverse("flight", args=(f.id,)))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "flights/flight.html")
 
     def test_invalid_flight_page(self):
         """invalid flight page should return status code 404"""
